@@ -1,0 +1,505 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Helvetica, Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.clear{
+    clear: both;
+}
+
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after{
+    content: ""; 
+    /* Phải có thằng content trên kể cả khi nó là chuỗi rỗng */
+    display: block;
+    clear:both;
+}
+
+.mt-8{
+    margin-top: 8px !important;
+}
+
+.mt-16{
+    margin-top: 16px !important;
+}
+
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-half{
+    width: 50%;
+}
+
+.col-third{
+    width: calc(100%/3);
+}
+
+.col-full{
+    width: 100%;
+}
+
+.text-center{
+    text-align: center;
+}
+
+#header{
+    position: fixed;
+    height: 46px;
+    background-color: #b0b0b0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#header #search_box {
+    float: right;
+    padding: 14px 24px; 
+    /*tren hai_ben  */
+    cursor:pointer;
+}
+#header #search_box:hover{
+    color: #fff;
+    background-color: orangered;
+}
+
+#header #search-icon{
+    color: #fff;
+    
+}
+
+
+#nav, .subnav{
+    list-style-type: none;
+    display: inline-block;
+}
+
+#nav li{
+    display: inline-block; 
+    position: relative;
+
+}
+
+
+/* Khi hover đúng vào thằng li thì thằng con subnav sẽ được add css */
+#nav li:hover .subnav{
+    display: block;
+}
+
+#nav > li > a{
+    color: #fff;
+    text-transform: uppercase;
+
+}
+
+#nav li a{
+    color: #fff;
+    text-decoration: none;
+    line-height: 46px;
+    padding: 0px 24px;
+    display: inline-block;
+
+}
+
+#nav > li:hover > a,
+#nav .subnav > li:hover{
+    color: black;
+    background-color: #ccc;
+}
+
+#nav .subnav{
+    display: none;
+     /* Hai thằng dưới được thêm vào để luôn đảm bảo khoảng cách (xem lại để hiểu rõ hơn) */
+    top: 100%;
+    left: 0px;
+    /*     */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    min-width: 160px;
+
+
+}
+
+
+#nav .subnav li{
+    width: 100%;
+
+}
+
+#nav .subnav a{
+    color: black;
+    padding:0 12px;
+    
+}
+
+#slider{
+    margin-top: 46px;
+    padding-top: 50%;
+    background-color: rgba(159, 236, 255, 0.2);
+
+    /* Dòng trên hiểu là chiều cao = 50% chiều ngang */
+    width: 100%;
+
+    /* position: relative; */
+    
+}
+/* #slider .text-heading{
+    font-weight: 500;
+    font-size: 32px;
+    color: #c4c1c1;
+}
+#slider .text-description{
+    font-size: 16px;
+    margin-top: 25px;
+} */
+
+#slider .text-content{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    padding: 32px 16px; 
+    bottom: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#content{
+    
+}
+
+#content .content-section{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 16px;
+}
+#content .section-heaing{
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+
+
+}
+#content .section-subheading{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-style: italic;
+    opacity: 0.5;
+
+}
+#content .section-description{
+    text-align: justify;
+    line-height: 1.6;
+}
+#content .group-member {
+    /* margin-top: 48px 0; */
+    margin-top: 48px;
+    /* margin-bottom: 96px; */
+    margin-bottom: 74px;
+    text-align: center;
+    overflow: hidden;
+
+}
+
+
+#content .group-member img{
+    width: 154px;
+    margin-top: 15px ;
+    border-radius: 4px;
+}
+
+
+.tour-section{
+    background-color: #b0b0b0;
+    color: #fff;
+}
+
+.tour-section .content-section{
+    width: 800px;
+}
+
+.tour-section .ticket-available{
+    
+}
+
+
+
+.tour-section ul li{
+    padding: 12px 16px;
+    color: rgb(103, 102, 102);
+    list-style-type: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    line-height: 22px;
+}
+
+.tour-section ul .soldout{
+   margin-left: 16px;
+   padding: 6px 8px;
+   color: white;
+   background-color: rgb(244,67,54)
+   
+}
+
+.tour-section  .real-ticket-available{
+    border-radius: 50%;
+    border: 1px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin-right: 16px;
+    font-size: 15px;
+    background-color: black;
+    color: #fff;
+    float: right;
+ }
+
+ .tour-section .performance{
+    margin-top: 32px;
+    margin-bottom: 40px;
+    /* background-color: #fff;  */
+ }
+
+
+ .tour-section img{
+    width: 100%;
+    display: block;
+    /* text-align: center; */
+ }
+
+ .tour-section img:hover{
+    width: 100%;
+    opacity: 0.5;
+    /* text-align: center; */
+ }
+
+ .tour-section .performance-information{
+    background-color: #fff;
+    color: black;
+    /* text-align: left; */
+    padding: 0 16px;
+}
+
+ .tour-section .performance-information p{
+    padding: 15px 0;
+
+ }
+
+ .performance-information .time{
+    opacity: 0.7;
+ }
+
+
+
+ .tour-section .performance-information .buy-ticket{
+    color: #fff;
+    background-color: #000;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+ }
+
+
+
+ .tour-section .performance-information .buy-ticket:hover{
+    color:black;
+    background-color:  #ccc;
+    border: 1px solid #ccc;
+   
+ }
+
+/* News-section */
+.content-list{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 0;
+
+}
+.content-list li{
+    text-decoration: none;
+    list-style-type: none;
+    padding: 5px 0;
+}
+
+
+/* Contact-section */
+
+.contact-section{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 16px;
+    position: relative;
+}
+
+
+.registry-section {
+    padding: 32px 0;
+}
+
+.contact-info{
+    font-size: 18px;
+    display: inline-block;
+    line-height: 1.4;
+}
+
+.contact-info i[class*="fa-"]{
+    width: 30px;
+}
+.input-section{
+    font-size: 15px;
+}
+
+.input-section .form-control{
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.registry-section .sbt-button{
+    float: right;
+    padding: 8px 16px;
+    margin: 16px 0;
+    background-color: #000;
+    color: #fff;
+    letter-spacing: 2px;
+    font-size: 15px;
+    border: none;
+}
+
+.registry-section .sbt-button:hover{
+    color: #000;
+    background-color: #ccc;
+}
+
+
+/* Form css */
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add a background color and some padding around the form */
+
+  .Form{
+    margin-top: 46px;
+    text-align: center;
+    
+    margin-top: 92px;
+
+
+  }
+  .Form .form-desc{
+    
+  }
+
+  .Form .container {
+
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	/* padding: 10px 10px 20px; */
+	transition: transform 0.2s;
+	width: 500px;
+
+    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 2%;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    /* padding: 46px; */
+  }
+
+  .form-desc #desc1{
+    padding: 20px 0;
+  }
+  .form-desc #desc2{
+    margin: 20px 0;
+    font-size: 30px;
+  }
+
+
+  .container #reg-form{
+    border-radius: 15px;
+  }
+
+  .container > #reg-form > p{
+    padding: 10px 0;
+  }
+
+  .container form p{
+    background-color: #45a049;
+    color: blue;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 30px;
+    padding: 24px 0;
+    width: 100%;
+
+  }
+
+  .container .field-input{
+    margin-top: 20px;
+  }
+
+  .container label{
+    float: left;
+  }
+
+  .container input{
+    border-style: outset;
+  }
+
+  .container .field{
+    padding: 0 8px;
+  }
+
+  .container button{
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 20px;
+    margin: 20px;
+  }
+
+
+  
+  
