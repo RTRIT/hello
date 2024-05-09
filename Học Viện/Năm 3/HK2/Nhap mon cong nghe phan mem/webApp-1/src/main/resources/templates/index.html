@@ -1,10 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy lạnh</title>
+    <link rel="stylesheet" th:href="@{/public/css/style.css}">
 </head>
+
 <body>
-$END$
+<div id="header">
+    <ul id="nav">
+        <li><a href="#slider">Trang chủ</a></li>
+        <li><a  th:href="@{/Form}">Đặt dịch vụ</a></li>
+        <li><a th:href="@{/Admin}">Admin</a></li>
+        <!-- <li><a href="#band">Band</a></li>
+        <li><a href="#tour">Tour</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+            <a href="">
+                More
+                <i class="fa-solid fa-caret-down"></i>
+            </a>z
+            <ul class="subnav">
+                <li><a href="#">Merchandise</a></li>
+                <li><a href="#">Extras</a></li>
+                <li><a href="#">Media</a></li>
+            </ul>:
+
+        </li> -->
+    </ul>
+    <div id="search_box">
+        <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+    </div>
+</div>
+<!-- Slider -->
+<div id="slider" class="slider">
+
+    <div class="text-content">
+        <img th:src="@{/public/images/slider1.webp}" alt="">
+    </div>
+    <!-- <div class="text-content">
+        <h2 class="text-heading">New York</h2>
+        <div class="text-description">The atmosphere in New York is lorem ipsum.</div>
+    </div> -->
+</div>
+<!-- Content -->
+<div id="content">
+    <!-- Content 1 -->
+    <div id="band" class="content-section">
+        <h1 class="section-heaing">DỊCH VỤ SỬA ĐIỆN NƯỚC ĐƯỢC YÊU CẦU NHIỀU NHẤT</h1>
+        <p class="section-subheading">Với nhân sự phụ trách kỹ thuật bao gồm hơn 65 thợ điện có chứng chỉ nghề, thợ sửa ống nước chuyên nghiệp và nhiều thợ lành nghề trong lĩnh vực chống thấm, sơn sửa nhà. 1FIX™ sẽ làm hài lòng khách hàng sử dụng dịch vụ của chúng tôi.</p>
+        <!-- <div class="group-member">
+            <div class="col col-third text-center">
+                <p>Name</p>
+                <img src="./assets/image/content/members.jpeg" alt="">
+            </div>
+            <div class="col col-third text-center">
+                <p>Name</p>
+                <img src="./assets/image/content/members.jpeg" alt="">
+            </div>
+            <div class="col col-third text-center">
+                <p>Name</p>
+                <img src="./assets/image/content/members.jpeg" alt="">
+            </div>
+            <div class="clear"></div>
+        </div> -->
+    </div>
+    <!-- Tour section -->
+    <div id="tour" class="tour-section">
+        <div class="content-section">
+            <h1 class="section-heaing">CÁC DỊCH VỤ ĐIỆN LẠNH TIÊU BIỂU</h1>
+            <!-- <p class="section-subheading">Remember to book your tickets!</p> -->
+            <!-- <ul class="ticket-available">
+                <li class="month">September <span class="soldout">Sold out</span></li>
+                <li class="month">October <span class="soldout">Sold out</span></li>
+                <li class="month">November <span class="real-ticket-available">3</span></li>
+            </ul> -->
+            <div class="row performance">
+                <div class="col col-third">
+                    <img th:src="@{/public/images/service1.webp}" alt="">
+                    <div class="performance-information">
+                        <p class="place">SỬA MÁY LẠNH TẬN NƠI</p>
+                        <p class="time">Dịch vụ sửa máy lạnh, điều hòa uy tín</p>
+                        <p class="desc">Sửa máy lạnh nhanh chóng & khẩn cấp nhất để khách hàng có máy sinh hoạt lại nhanh chóng. Chính sách bảo hành nghiêm túc.</p>
+                        <!-- <button class="buy-ticket js-buy-ticket ">Buy ticket</button> -->
+                    </div>
+                </div>
+                <div class="col col-third">
+                    <img th:src="@{/public/images/service2.webp}" alt="">
+                    <div class="performance-information">
+                        <p class="place">VỆ SINH MÁY LẠNH</p>
+                        <p class="time">Vệ sinh máy lạnh phí cao nhưng chuẩn mực</p>
+                        <p class="desc">Tại 1FIX™ chúng tôi không chạy theo việc cung cấp dịch vụ giá rẻ mà chúng tôi luôn muốn duy trì chất lượng công việc cao với giá hợp lý.     </p>
+                        <!-- <button class="buy-ticket js-buy-ticket">Buy ticket</button> -->
+                    </div>
+                </div>
+                <div class="col col-third">
+                    <img th:src="@{/public/images/service3.webp}" alt="">
+                    <div class="performance-information">
+                        <p class="place">SỬA TỦ LẠNH TẬN NHÀ</p>
+                        <p class="time">Dịch vụ sửa tủ lạnh khẩn cấp tại nhà khách</p>
+                        <p class="desc">Kinh nghiệm khắc phục mọi hư hỏng thường gặp của tủ lạnh. Sửa tại nhà khách, không cần phải mang tủ lạnh về xưởng để sửa.          </p>
+                        <!-- <button class="buy-ticket js-buy-ticket">Buy ticket</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact section -->
+    <div id="news" class="news-section">
+        <div class="content-section">
+            <h1 class="section-heaing">Tại sao nên bảo trì, bảo dưỡng máy lạnh (điều hòa) định kỳ?</h1>
+            <ul class="content-list">
+                <li>Cá nhân chúng ta ai cũng biết máy móc hoạt động lâu ngày thì phải bảo trì, bảo dưỡng nhằm kiểm tra và làm vệ sinh và nếu bảo dưỡng máy lạnh hay điều hòa định kỳ sẽ mang lại những lợi ích sau:</li>
+                <li>Cải thiện độ bền của máy: việc kiểm tra, lau chùi thường xuyên sẽ giúp cho máy tránh bị thoái hóa về mặt thẩm mỹ và giữ máy hoạt động trong tình trạng tốt nhất.</li>
+                <li>Tiết kiệm điện năng sử dụng: khi máy lạnh hay điều hòa, hoạt động ổn định ở điều kiện tốt nhất, máy sẽ không bị hoạt động quá tải và chạy ổn định hơn, giảm sự hao phí điện năng, giúp máy lạnh tiết kiệm điện hơn, giảm hóa đơn tiền điện cho gia đình bạn.</li>
+                <li>Giúp luồng không khí trong lành lưu thông trong phòng: Trong quá trình lọc khí, sẽ có nhiều bụi bẩn, vi khuẩn bám trên dàn lạnh máy điều hòa. Dàn lạnh không vệ sinh sẽ chứa rất nhiều bụi bẩn gây ảnh hưởng tới hoạt động của máy cũng như sản sinh ra vi khuẩn gây hại cho sức khỏe con người. Bảo dưỡng máy lạnh định kỳ giúp làm sạch hệ thống lọc khí, đem đến luồng không khí trong lành hơn.</li>
+                <li>Tiết kiệm chi phí sửa chữa: không bảo dưỡng, bảo trì máy lạnh hay điều hòa định kỳ sẽ làm cho máy chạy trong điều kiện quá tải, làm ảnh hưởng tới tất cả những bộ phận khác của máy, lâu ngày máy sẽ hư hỏng nặng và bạn phải tốn một khoản chi phí sửa chữa lớn hơn nhiều.</li>
+                <li>Tăng tuổi thọ máy điều hòa: các bất ổn từ máy lạnh hay máy điều hòa do thiếu bảo trì, bảo dưỡng sẽ làm máy hoạt động không đúng công năng người sử dụng mong đợi. Rõ ràng đây mới là tổn thất lớn nhất vì chúng ta không bỏ tiền để sắm máy lạnh nhưng không được hưởng thụ không khí mát lạnh khi sinh hoạt.</li>
+            </ul>
+            <h1 class="section-heaing">Tại sao nên chọn 1FIX™ làm đơn vị cung cấp dịch vụ bảo trì máy lạnh?</h1>
+            <ul class="content-list">
+                <li>1FIX™ – Địa chỉ bảo trì máy lạnh uy tín, được khách hàng đánh giá cao</li>
+                <li>+ Có rất nhiều địa chỉ cung cấp dịch vụ bảo trì, sửa chữa máy lạnh nhưng tốt nhất, bạn nên chọn 1fix.vn để sửa máy lạnh bởi:</li>
+                <li>+ Có đội ngũ nhân viên kỹ thuật lành nghề, giàu kinh nghiệm có thể sửa chữa được mọi lỗi và các hãng khác nhau đảm bảo máy lạnh sau khi sửa xong sẽ hoạt động bình thường.</li>
+                <li>+ Quy trình bảo trì máy lạnh chuyên nghiệp.</li>
+                <li>+ Thay thế linh kiện chính hãng, phù hợp.</li>
+                <li>+ Có kinh nghiệm bảo trì thực tế với rất nhiều dòng máy lạnh khác nhau. 1FIX™ đã và đang cung cấp dịch vụ bảo trì máy lạnh âm trần, máy lạnh đứng, máy lạnh mẹ bồng con…</li>
+            </ul>
+            <h1 class="section-heaing">Tại sao nên bảo trì, bảo dưỡng máy lạnh (điều hòa) định kỳ?</h1>
+            <ul class="content-list">
+                <li>Cá nhân chúng ta ai cũng biết máy móc hoạt động lâu ngày thì phải bảo trì, bảo dưỡng nhằm kiểm tra và làm vệ sinh và nếu bảo dưỡng máy lạnh hay điều hòa định kỳ sẽ mang lại những lợi ích sau:</li>
+                <li>Cải thiện độ bền của máy: việc kiểm tra, lau chùi thường xuyên sẽ giúp cho máy tránh bị thoái hóa về mặt thẩm mỹ và giữ máy hoạt động trong tình trạng tốt nhất.</li>
+                <li>Tiết kiệm điện năng sử dụng: khi máy lạnh hay điều hòa, hoạt động ổn định ở điều kiện tốt nhất, máy sẽ không bị hoạt động quá tải và chạy ổn định hơn, giảm sự hao phí điện năng, giúp máy lạnh tiết kiệm điện hơn, giảm hóa đơn tiền điện cho gia đình bạn.</li>
+                <li>Giúp luồng không khí trong lành lưu thông trong phòng: Trong quá trình lọc khí, sẽ có nhiều bụi bẩn, vi khuẩn bám trên dàn lạnh máy điều hòa. Dàn lạnh không vệ sinh sẽ chứa rất nhiều bụi bẩn gây ảnh hưởng tới hoạt động của máy cũng như sản sinh ra vi khuẩn gây hại cho sức khỏe con người. Bảo dưỡng máy lạnh định kỳ giúp làm sạch hệ thống lọc khí, đem đến luồng không khí trong lành hơn.</li>
+                <li>Tiết kiệm chi phí sửa chữa: không bảo dưỡng, bảo trì máy lạnh hay điều hòa định kỳ sẽ làm cho máy chạy trong điều kiện quá tải, làm ảnh hưởng tới tất cả những bộ phận khác của máy, lâu ngày máy sẽ hư hỏng nặng và bạn phải tốn một khoản chi phí sửa chữa lớn hơn nhiều.</li>
+                <li>Tăng tuổi thọ máy điều hòa: các bất ổn từ máy lạnh hay máy điều hòa do thiếu bảo trì, bảo dưỡng sẽ làm máy hoạt động không đúng công năng người sử dụng mong đợi. Rõ ràng đây mới là tổn thất lớn nhất vì chúng ta không bỏ tiền để sắm máy lạnh nhưng không được hưởng thụ không khí mát lạnh khi sinh hoạt.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
 </body>
-</html>
