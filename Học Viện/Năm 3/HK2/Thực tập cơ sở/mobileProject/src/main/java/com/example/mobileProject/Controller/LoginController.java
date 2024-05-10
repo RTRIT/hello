@@ -49,19 +49,14 @@ public class LoginController {
     }
 
     @PostMapping("/user/loginOauth")
-    //Gửi request có body theo Oatuh
-    public ResponseEntity loginOauth(@RequestBody LoginForm form) {
-        if (form == null || form.getUsername() == null || form.getPassword() == null) {return new ResponseEntity<>("Request body is missing required fields", HttpStatus.BAD_REQUEST);}
+    //Gửi request có body theo LoginForm
+    public ResponseEntity login(@RequestBody User user) {
+        if (user == null || user.getUsername() == null ) {return new ResponseEntity<>("Request body is missing required fields", HttpStatus.BAD_REQUEST);}
         // Check if the request body is properly formatted
 
 
-        // Get User's username:
 
-
-
-
-        //Get User detail with username
-        String token = "{\"token\":\"" + jwtUtil.generateToken(form.getUsername(), "user") + "\"}";
+        String token = "{\"token\":\"" + jwtUtil.generateToken(user.getUsername(), "user") + "\"}";
         // Generate new token with the provided username
 
         return new ResponseEntity<>(token, HttpStatus.OK);

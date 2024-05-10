@@ -7,7 +7,7 @@ public class AppConfig {
 
     private AppConfig() {
         // Initialize default values or load from configuration file
-        serverAddress = "192.168.1.14";
+        serverAddress = "172.31.99.56";
         serverPort = 9080;
     }
 

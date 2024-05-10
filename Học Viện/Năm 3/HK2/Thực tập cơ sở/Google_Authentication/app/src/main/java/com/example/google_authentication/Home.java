@@ -32,10 +32,10 @@ public class Home extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         name = findViewById(R.id.test);
         email = findViewById(R.id.test2);
         id = findViewById(R.id.test3);
-
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
 //        if(accessToken!=null && accessToken.isExpired()==false){
 //            Toast.makeText(getApplicationContext(),"token",Toast.LENGTH_LONG).show();
