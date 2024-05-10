@@ -69,8 +69,8 @@ public class UserList extends AppCompatActivity {
 
 
         // Cal api to db to get all the user:
-
         getUserFromDb();
+
 
 
         recyclerView = findViewById(R.id.recyclerUser);
@@ -101,21 +101,21 @@ public class UserList extends AppCompatActivity {
     public void getUserFromDb() {
         String url = "http://"+ip+":9080/home/user";
         RequestQueue queue = Volley.newRequestQueue(UserList.this);
-        JsonArrayRequest stringRequest = new JsonArrayRequest(Request.Method.GET, url,null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest arrayRequest = new JsonArrayRequest(Request.Method.POST, url,null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray res) {
                 try {
                     for(int i=0; i<res.length(); i++){
                         JSONObject jsonObject = res.getJSONObject(i);
-                        userList.add(new User(jsonObject.getString("username"), R.drawable.cat1));
-                        Toast.makeText(getApplicationContext(),jsonObject.getString("username"),Toast.LENGTH_LONG).show();
+                        userList.add(new User(jsonObject.getString("username").toString(), R.drawable.cat1));
+                        mUserAdapter.notifyDataSetChanged();
                     }
+
+
                 }catch(JSONException e){
                     e.printStackTrace();
                     System.out.println(e.getMessage());
                 }
-
-
             }
         }, new Response.ErrorListener() {
             @Override
@@ -123,7 +123,7 @@ public class UserList extends AppCompatActivity {
 
             }
         });
-        queue.add(stringRequest);
+        queue.add(arrayRequest);
     }
 
 

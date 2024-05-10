@@ -61,9 +61,24 @@ public class ProfileDetail extends AppCompatActivity {
 //        tv_first_name.setText(first_name);
 //        tv_last_name.setText(last_name);
 //        tv_email.setText(email);
-        loadUser();
-        // Load user information to interface
 
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("username")) {
+            // User logged in via Facebook, display passed user data
+            String username = intent.getStringExtra("username");
+            String email = intent.getStringExtra("email");
+            String firstName = intent.getStringExtra("first_name");
+            String lastName = intent.getStringExtra("last_name");
+
+            // Display user data
+            tv_first_name.setText(firstName);
+            tv_last_name.setText(lastName);
+            tv_email.setText(email);
+        } else {
+            // User logged in via login form, load user data
+            loadUser();
+        }
+        // Load user information to interface
 
         // Hook Sign Out, admin Button:
         sign_out_btn = findViewById(R.id.sign_out_btn);
@@ -95,11 +110,8 @@ public class ProfileDetail extends AppCompatActivity {
         JSONObject getData = new JSONObject();
         try {
             initPreferences();
-//            mySharePreference = mySharePreference.getInstance(ProfileDetail.this);
             String savedToken = sharedPreferences.getString("token", null);
-//            String savedToken2 = mySharePreference.getToken();
             getData.put("token", savedToken);
-
             //Gửi request với token được set
         }catch (JSONException e) {
             e.printStackTrace();
@@ -109,7 +121,7 @@ public class ProfileDetail extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject res) {
                 try {
-                    String first_name = (String) res.get("first_naadminme");
+                    String first_name = (String) res.get("first_name");
                     String last_name = (String) res.get("last_name");
                     String email = (String) res.get("email");
                     String role = (String) res.get("role");
@@ -131,7 +143,7 @@ public class ProfileDetail extends AppCompatActivity {
 
                 }catch (JSONException e){
                     e.printStackTrace();
-                    System.out.println("Failling time");
+                    System.out.println("Failing");
                 }
             }
         }, new Response.ErrorListener() {
@@ -139,7 +151,7 @@ public class ProfileDetail extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
                 System.out.println(error.getMessage());
-                Toast.makeText(ProfileDetail.this, "Failing", Toast.LENGTH_LONG).show();
+                Toast.makeText(ProfileDetail.this, "Fail to load profile", Toast.LENGTH_LONG).show();
             }
         }
         );
@@ -162,6 +174,7 @@ public class ProfileDetail extends AppCompatActivity {
         finish();
 
     }
+
     private void initPreferences() {
         sharedPreferences = getSharedPreferences("tokenSet", MODE_PRIVATE);
         editor = sharedPreferences.edit();
